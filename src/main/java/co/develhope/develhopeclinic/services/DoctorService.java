@@ -1,7 +1,7 @@
-package develhopeclinic.services;
+package co.develhope.develhopeclinic.services;
 
-import develhopeclinic.entities.Doctor;
-import develhopeclinic.repositories.I_DoctorRepository;
+import co.develhope.develhopeclinic.entities.Doctor;
+import co.develhope.develhopeclinic.repositories.I_DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -36,11 +36,17 @@ public class DoctorService {
         return "Doctor Removed! " + id;
     }
 
-    public Doctor updateDoctor (Doctor doctor){
-        Doctor existingDoctor= repository.findById(doctor.getId()).orElse(null);
-        existingDoctor.setName(doctor.getName());
-        existingDoctor.setSurname(doctor.getSurname());
-        existingDoctor.setBirthDate(doctor.getBirthDate());
-        return repository.save(existingDoctor);
+    public Doctor updateDoctor (Doctor doctor) throws NullPointerException{
+        Doctor existingDoctor = repository.findById(doctor.getId()).orElse(null);
+        try {
+            existingDoctor.setName(doctor.getName());
+            existingDoctor.setSurname(doctor.getSurname());
+            existingDoctor.setBirthDate(doctor.getBirthDate());
+            existingDoctor.setAge(doctor.getAge());
+            existingDoctor.setMedicRole(doctor.getMedicRole());
+
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }return repository.save(existingDoctor);
     }
 }

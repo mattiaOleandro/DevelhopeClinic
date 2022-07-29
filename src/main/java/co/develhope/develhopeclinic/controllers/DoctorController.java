@@ -1,7 +1,7 @@
-package develhopeclinic.controllers;
+package co.develhope.develhopeclinic.controllers;
 
-import develhopeclinic.entities.Doctor;
-import develhopeclinic.services.DoctorService;
+import co.develhope.develhopeclinic.entities.Doctor;
+import co.develhope.develhopeclinic.services.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
