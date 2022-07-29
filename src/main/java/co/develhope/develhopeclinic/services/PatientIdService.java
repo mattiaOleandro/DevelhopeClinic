@@ -1,4 +1,4 @@
 package co.develhope.develhopeclinic.services;
 
-public class DoctorService {
+public class PatientIdService {
 }
