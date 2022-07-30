@@ -1,18 +1,11 @@
 package co.develhope.develhopeclinic.entities;
 
-import lombok.AllArgsConstructor;
-
-import lombok.NoArgsConstructor;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDate;
 
-
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "DOCTOR_TBL")
 public class Doctor {
@@ -26,6 +19,17 @@ public class Doctor {
     private int age;
     private LocalDate birthDate;
     private String medicRole;
+
+    public Doctor() {}
+
+    public Doctor(int id, String name, String surname, int age, LocalDate birthDate, String medicRole) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.birthDate = birthDate;
+        this.medicRole = medicRole;
+    }
 
     public int getId() {
         return id;
