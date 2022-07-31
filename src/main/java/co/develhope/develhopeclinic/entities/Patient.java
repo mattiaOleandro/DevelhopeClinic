@@ -1,4 +1,4 @@
 package co.develhope.develhopeclinic.entities;
 
-public class PatientId {
+public class Patient {
 }

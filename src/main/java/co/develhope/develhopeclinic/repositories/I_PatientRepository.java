@@ -1,4 +1,4 @@
 package co.develhope.develhopeclinic.repositories;
 
-public interface I_PatientId {
+public interface I_PatientRepository {
 }
