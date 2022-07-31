@@ -4,8 +4,7 @@ import java.time.LocalDate;
 
 public class Patient {
 
-
-    private int patientId;
+    private int id;
     private String name;
     private String surname;
     private String nationality;
@@ -17,14 +16,15 @@ public class Patient {
     private String city;
     private String phone;
     private String email;
+    private String medicalPatology;
     //This datum as soon as it is implemented the Enum class will vary.
     private String gender;
 
     public Patient(){}
 
-    public Patient(int patientId, String name, String surname, String nationality, String placeOfBirth, LocalDate birthDate, String fiscalCode, String documentNumber, String address, String city, String phone, String email, String gender){
+    public Patient(int id, String name, String surname, String nationality, String placeOfBirth, LocalDate birthDate, String fiscalCode, String documentNumber, String address, String city, String phone, String email, String medicalPatology, String gender){
 
-        this.patientId = patientId;
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.nationality = nationality;
@@ -36,15 +36,12 @@ public class Patient {
         this.city = city;
         this.phone = phone;
         this.email = email;
+        this.medicalPatology = medicalPatology;
         this.gender = gender;
         }
 
-    public int getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(int patientId) {
-        this.patientId = patientId;
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -141,5 +138,13 @@ public class Patient {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getMedicalPatology() {
+        return medicalPatology;
+    }
+
+    public void setMedicalPatology(String medicalPatology) {
+        this.medicalPatology = medicalPatology;
     }
 }
