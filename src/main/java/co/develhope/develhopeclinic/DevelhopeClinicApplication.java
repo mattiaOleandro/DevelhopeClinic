@@ -18,6 +18,7 @@ public class DevelhopeClinicApplication implements CommandLineRunner {
 		@Autowired
 		private I_DoctorRepository doctorRepository;
 
+	//override run method
 	@Override
 	public void run(String... args) throws Exception {
 
@@ -76,31 +77,5 @@ public class DevelhopeClinicApplication implements CommandLineRunner {
 
 		doctorRepository.save(doctor2);
 
-		//Person Attributtes
-		Doctor doctor3 = new Doctor();
-		doctor3.setName("Andrew");
-		doctor3.setSurname("Lowe");
-		doctor3.setNationality("Inglese");
-		doctor3.setPlaceOfBirth("Firenze");
-		doctor3.setBirthDate(LocalDate.of(1948, 3, 18));
-		doctor3.setFiscalCode("LWONRW48C18D612Q");
-		doctor3.setDocumentNumber("KY75859601");
-		doctor3.setAddress("Piazza Principe Umberto, 73");
-		doctor3.setCity("Firenze");
-		doctor3.setPhone("0351-8887306");
-		doctor3.setEmail("AndrewLowe@dayrep.com");
-		doctor3.setGender(EnumGender.MALE);
-
-		//Employee Attributtes
-		doctor3.setRole(EnumRole.DOCTOR);
-		doctor3.setLogin("Pleged");
-		doctor3.setPassword("phu4iNg1ch");
-		doctor3.setBadgeNumber("AND-838-LOW");
-		doctor3.setPlaceOfWork(EnumPlaceOfWork.MILANO);
-
-		//Employee Attributtes
-		doctor3.setMedicalSpecialization(EnumMedicalSpecializzation.DERMATOLOGY);
-
-		doctorRepository.save(doctor3);
 	}
 }
