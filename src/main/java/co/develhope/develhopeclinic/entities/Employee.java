@@ -1,28 +1,25 @@
 package co.develhope.develhopeclinic.entities;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDate;
 
 @MappedSuperclass
 public class Employee extends Person {
 
-    private Enum role;
+    @Enumerated(EnumType.ORDINAL)
+    private EnumRole role;
     private String login;
     private String password;
     private String badgeNumber;
-    private Enum placeOfWork;
+    @Enumerated(EnumType.ORDINAL)
+    private EnumPlaceOfWork placeOfWork;
 
     public Employee() {
     }
 
-    public Employee(int id, String name, String surname, String address, String city, String phone,
-                    String email, Enum gender, int age, String nationality, String placeOfBirth,
-                    LocalDate birthDate, String fiscalCode, String documentNumber, String medicRole,
-                    Enum role, String login, String password, String badgeNumber, Enum placeOfWork) {
-
-        super(id, name, surname, address, city, phone, email,
-                gender, age, nationality, placeOfBirth, birthDate,
-                fiscalCode, documentNumber, medicRole);
+    public Employee(EnumRole role, String login, String password, String badgeNumber, EnumPlaceOfWork placeOfWork) {
         this.role = role;
         this.login = login;
         this.password = password;
@@ -30,11 +27,20 @@ public class Employee extends Person {
         this.placeOfWork = placeOfWork;
     }
 
-    public Enum getRole() {
+    public Employee(int id, String name, String surname, String address, String city, String phone, String email, EnumGender gender, String nationality, String placeOfBirth, LocalDate birthDate, String fiscalCode, String documentNumber, EnumRole role, String login, String password, String badgeNumber, EnumPlaceOfWork placeOfWork) {
+        super(id, name, surname, address, city, phone, email, gender, nationality, placeOfBirth, birthDate, fiscalCode, documentNumber);
+        this.role = role;
+        this.login = login;
+        this.password = password;
+        this.badgeNumber = badgeNumber;
+        this.placeOfWork = placeOfWork;
+    }
+
+    public EnumRole getRole() {
         return role;
     }
 
-    public void setRole(Enum role) {
+    public void setRole(EnumRole role) {
         this.role = role;
     }
 
@@ -62,11 +68,11 @@ public class Employee extends Person {
         this.badgeNumber = badgeNumber;
     }
 
-    public Enum getPlaceOfWork() {
+    public EnumPlaceOfWork getPlaceOfWork() {
         return placeOfWork;
     }
 
-    public void setPlaceOfWork(Enum placeOfWork) {
+    public void setPlaceOfWork(EnumPlaceOfWork placeOfWork) {
         this.placeOfWork = placeOfWork;
     }
 }
