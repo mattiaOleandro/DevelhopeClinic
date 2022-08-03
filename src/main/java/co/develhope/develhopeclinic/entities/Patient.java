@@ -1,7 +1,11 @@
 package co.develhope.develhopeclinic.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "patientTable")
 public class Patient extends Person{
 
     private String medicalPatology;
