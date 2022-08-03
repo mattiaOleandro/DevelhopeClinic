@@ -36,8 +36,6 @@ public class Person {
     private String fiscalCode;
     @Column(unique = true, name = "documentNumber")
     private String documentNumber;
-    @Column(name = "medicRole")
-    private String medicRole;
 
     public Person() {
     }
@@ -45,7 +43,7 @@ public class Person {
     public Person(int id, String name, String surname, String address, String city,
                   String phone, String email, EnumGender gender, int age, String nationality,
                   String placeOfBirth, LocalDate birthDate, String fiscalCode,
-                  String documentNumber, String medicRole) {
+                  String documentNumber) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -60,7 +58,6 @@ public class Person {
         this.birthDate = birthDate;
         this.fiscalCode = fiscalCode;
         this.documentNumber = documentNumber;
-        this.medicRole = medicRole;
     }
 
     public int getId() {
@@ -173,13 +170,5 @@ public class Person {
 
     public void setDocumentNumber(String documentNumber) {
         this.documentNumber = documentNumber;
-    }
-
-    public String getMedicRole() {
-        return medicRole;
-    }
-
-    public void setMedicRole(String medicRole) {
-        this.medicRole = medicRole;
     }
 }
