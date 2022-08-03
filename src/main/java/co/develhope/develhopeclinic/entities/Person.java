@@ -30,9 +30,9 @@ public class Person {
     private String placeOfBirth;
     @Column(name = "birthDate")
     private LocalDate birthDate;
-    @Column(unique = true, name = "fiscalCode",length = 16) //valutare omocodia
+    @Column(name = "fiscalCode",length = 16) //valutare omocodia
     private String fiscalCode;
-    @Column(unique = true, name = "documentNumber")
+    @Column(name = "documentNumber")
     private String documentNumber;
 
     public Person() {
