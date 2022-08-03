@@ -20,10 +20,10 @@ public class Person {
     private String city;
     @Column(name = "phone")
     private String phone;
-    @Column(name = "email")
+    @Column(unique = true, name = "email", length = 30)
     private String email;
-    @Column(name = "gender")
-    private Enum gender;
+    @Enumerated(EnumType.ORDINAL)
+    private EnumGender gender;
     @Column(name = "age")
     private int age;
     @Column(name = "nationality")
@@ -32,9 +32,9 @@ public class Person {
     private String placeOfBirth;
     @Column(name = "birthDate")
     private LocalDate birthDate;
-    @Column(name = "fiscalCode")
+    @Column(unique = true, name = "fiscalCode",length = 16) //valutare omocodia
     private String fiscalCode;
-    @Column(name = "documentNumber")
+    @Column(unique = true, name = "documentNumber")
     private String documentNumber;
     @Column(name = "medicRole")
     private String medicRole;
@@ -43,7 +43,7 @@ public class Person {
     }
 
     public Person(int id, String name, String surname, String address, String city,
-                  String phone, String email, Enum gender, int age, String nationality,
+                  String phone, String email, EnumGender gender, int age, String nationality,
                   String placeOfBirth, LocalDate birthDate, String fiscalCode,
                   String documentNumber, String medicRole) {
         this.id = id;
@@ -119,11 +119,11 @@ public class Person {
         this.email = email;
     }
 
-    public Enum getGender() {
+    public EnumGender getGender() {
         return gender;
     }
 
-    public void setGender(Enum gender) {
+    public void setGender(EnumGender gender) {
         this.gender = gender;
     }
 
