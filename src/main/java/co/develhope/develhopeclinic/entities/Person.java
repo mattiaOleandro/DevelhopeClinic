@@ -8,7 +8,7 @@ public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "personID")
+    @Column(name = "id")
     private int id;
     @Column(name = "name")
     private String name;
@@ -20,7 +20,7 @@ public class Person {
     private String city;
     @Column(name = "phone")
     private String phone;
-    @Column(name = "email")
+    @Column(unique = true, name = "email", length = 30)
     private String email;
     @Enumerated(EnumType.ORDINAL)
     private EnumGender gender;
@@ -30,9 +30,9 @@ public class Person {
     private String placeOfBirth;
     @Column(name = "birthDate")
     private LocalDate birthDate;
-    @Column(name = "fiscalCode")
+    @Column(unique = true, name = "fiscalCode",length = 16) //valutare omocodia
     private String fiscalCode;
-    @Column(name = "documentNumber")
+    @Column(unique = true, name = "documentNumber")
     private String documentNumber;
 
     public Person() {
