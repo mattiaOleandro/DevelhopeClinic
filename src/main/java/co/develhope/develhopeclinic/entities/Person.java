@@ -8,7 +8,7 @@ public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "personID")
+    @Column(name = "id")
     private int id;
     @Column(name = "name")
     private String name;
@@ -20,32 +20,27 @@ public class Person {
     private String city;
     @Column(name = "phone")
     private String phone;
-    @Column(name = "email")
+    @Column(unique = true, name = "email", length = 30)
     private String email;
-    @Column(name = "gender")
-    private Enum gender;
-    @Column(name = "age")
-    private int age;
+    @Enumerated(EnumType.ORDINAL)
+    private EnumGender gender;
     @Column(name = "nationality")
     private String nationality;
     @Column(name = "placeOfBirth")
     private String placeOfBirth;
     @Column(name = "birthDate")
     private LocalDate birthDate;
-    @Column(name = "fiscalCode")
+    @Column(name = "fiscalCode",length = 16) //valutare omocodia
     private String fiscalCode;
     @Column(name = "documentNumber")
     private String documentNumber;
-    @Column(name = "medicRole")
-    private String medicRole;
 
     public Person() {
     }
 
-    public Person(int id, String name, String surname, String address, String city,
-                  String phone, String email, Enum gender, int age, String nationality,
-                  String placeOfBirth, LocalDate birthDate, String fiscalCode,
-                  String documentNumber, String medicRole) {
+    public Person(int id, String name, String surname, String address, String city, String phone, String email,
+                  EnumGender gender, String nationality, String placeOfBirth, LocalDate birthDate, String fiscalCode,
+                  String documentNumber) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -54,13 +49,11 @@ public class Person {
         this.phone = phone;
         this.email = email;
         this.gender = gender;
-        this.age = age;
         this.nationality = nationality;
         this.placeOfBirth = placeOfBirth;
         this.birthDate = birthDate;
         this.fiscalCode = fiscalCode;
         this.documentNumber = documentNumber;
-        this.medicRole = medicRole;
     }
 
     public int getId() {
@@ -119,20 +112,12 @@ public class Person {
         this.email = email;
     }
 
-    public Enum getGender() {
+    public EnumGender getGender() {
         return gender;
     }
 
-    public void setGender(Enum gender) {
+    public void setGender(EnumGender gender) {
         this.gender = gender;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public String getNationality() {
@@ -173,13 +158,5 @@ public class Person {
 
     public void setDocumentNumber(String documentNumber) {
         this.documentNumber = documentNumber;
-    }
-
-    public String getMedicRole() {
-        return medicRole;
-    }
-
-    public void setMedicRole(String medicRole) {
-        this.medicRole = medicRole;
     }
 }

@@ -45,8 +45,6 @@ public class DoctorService {
             existingDoctor.setName(doctor.getName());
             existingDoctor.setSurname(doctor.getSurname());
             existingDoctor.setBirthDate(doctor.getBirthDate());
-            existingDoctor.setAge(doctor.getAge());
-            existingDoctor.setMedicRole(doctor.getMedicRole());
 
         }catch (NullPointerException e){
             e.printStackTrace();

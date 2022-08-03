@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface I_DoctorRepository extends JpaRepository<Doctor,Integer> {
 
     Doctor findByName(String name);
+
 }
