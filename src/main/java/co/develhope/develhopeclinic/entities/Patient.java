@@ -13,8 +13,8 @@ public class Patient extends Person{
 
     public Patient(){}
 
-    public Patient(int id, String name, String surname, String address, String city, String phone, String email, EnumGender gender, int age, String nationality, String placeOfBirth, LocalDate birthDate, String fiscalCode, String documentNumber, String medicalPatology) {
-        super(id, name, surname, address, city, phone, email, gender, age, nationality, placeOfBirth, birthDate, fiscalCode, documentNumber);
+    public Patient(int id, String name, String surname, String address, String city, String phone, String email, EnumGender gender, int age, String nationality, String placeOfBirth, LocalDate birthDate, String fiscalCode, String documentNumber, String medicalPatology, String medicRole) {
+        super(id, name, surname, address, city, phone, email, gender, age, nationality, placeOfBirth, birthDate, fiscalCode, documentNumber, medicRole);
         this.medicalPatology = medicalPatology;
     }
 
