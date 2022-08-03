@@ -16,7 +16,7 @@ public class Employee extends Person {
     }
 
     public Employee(int id, String name, String surname, String address, String city, String phone,
-                    String email, Enum gender, int age, String nationality, String placeOfBirth,
+                    String email, EnumGender gender, int age, String nationality, String placeOfBirth,
                     LocalDate birthDate, String fiscalCode, String documentNumber, String medicRole,
                     Enum role, String login, String password, String badgeNumber, Enum placeOfWork) {
 

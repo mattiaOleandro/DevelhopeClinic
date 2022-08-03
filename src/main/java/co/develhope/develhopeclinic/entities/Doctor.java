@@ -10,12 +10,11 @@ import java.time.LocalDate;
 @Table(name = "DOCTOR_TBL")
 public class Doctor extends Employee {
 
-
     public Doctor() {
     }
 
     public Doctor(int id, String name, String surname, String address,
-                  String city, String phone, String email, Enum gender,
+                  String city, String phone, String email, EnumGender gender,
                   int age, String nationality, String placeOfBirth,
                   LocalDate birthDate, String fiscalCode, String documentNumber,
                   String medicRole, Enum role, String login, String password,
