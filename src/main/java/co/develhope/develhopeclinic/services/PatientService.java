@@ -27,7 +27,7 @@ public class PatientService {
     }
 
     public  Patient getPatientById (int id){
-        return  repository.findById(id);
+        return  repository.findById(id).orElse(null);
     }
 
     public String deletePatient (int id){
@@ -36,7 +36,7 @@ public class PatientService {
     }
 
     public Patient updatePatient (Patient patient) throws NullPointerException{
-        Patient existingPatient = repository.findById(patient.getId());
+        Patient existingPatient = repository.findById(patient.getId()).orElse(null);
         try {
             existingPatient.setName(patient.getName());
             existingPatient.setSurname(patient.getSurname());

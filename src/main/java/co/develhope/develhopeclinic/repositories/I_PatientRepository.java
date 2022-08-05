@@ -6,6 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface I_PatientRepository extends JpaRepository<Patient,Integer> {
-
-        Patient findById(int id);
 }

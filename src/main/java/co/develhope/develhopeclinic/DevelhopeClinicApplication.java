@@ -2,6 +2,7 @@ package co.develhope.develhopeclinic;
 
 import co.develhope.develhopeclinic.entities.*;
 import co.develhope.develhopeclinic.repositories.I_DoctorRepository;
+import co.develhope.develhopeclinic.repositories.I_PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -17,6 +18,9 @@ public class DevelhopeClinicApplication implements CommandLineRunner {
 
 		@Autowired
 		private I_DoctorRepository doctorRepository;
+
+		@Autowired
+		private I_PatientRepository patientRepository;
 
 	//override run method
 	@Override
@@ -76,6 +80,46 @@ public class DevelhopeClinicApplication implements CommandLineRunner {
 		doctor2.setMedicalSpecialization(EnumMedicalSpecializzation.DERMATOLOGY);
 
 		doctorRepository.save(doctor2);
+
+		//Person Attributtes
+		Patient patient1 = new Patient();
+		patient1.setName("Anna");
+		patient1.setSurname("Verdi");
+		patient1.setNationality("Italy");
+		patient1.setPlaceOfBirth("Roma");
+		patient1.setBirthDate(LocalDate.of(1998, 7, 12));
+		patient1.setFiscalCode("VRDNNA98L52H501A");
+		patient1.setDocumentNumber("DR75462804");
+		patient1.setAddress("Via Monte Grappa, 42");
+		patient1.setCity("Roma");
+		patient1.setPhone("+393338974158");
+		patient1.setEmail("annaverdi@gmail.com.com");
+		patient1.setGender(EnumGender.FEMALE);
+
+		//Patient Attributtes
+		patient1.setMedicalPatology("Miocardite");
+
+		patientRepository.save(patient1);
+
+		//Person Attributtes
+		Patient patient2 = new Patient();
+		patient1.setName("Giovanni");
+		patient1.setSurname("Rossi");
+		patient1.setNationality("Italy");
+		patient1.setPlaceOfBirth("Milano");
+		patient1.setBirthDate(LocalDate.of(1952, 2, 21));
+		patient1.setFiscalCode("RSSGNN52B21F205N");
+		patient1.setDocumentNumber("EF82562344");
+		patient1.setAddress("Via Roma, 154");
+		patient1.setCity("Milano");
+		patient1.setPhone("+393317329654");
+		patient1.setEmail("giovannirossi@gmail.com.com");
+		patient1.setGender(EnumGender.MALE);
+
+		//Patient Attributtes
+		patient1.setMedicalPatology("Miocardite");
+
+		patientRepository.save(patient2);
 
 	}
 }
