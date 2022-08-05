@@ -1,6 +1,6 @@
 package co.develhope.develhopeclinic.entities;
 
-public enum EnumGender {
-    MALE,
-    FEMALE
+public enum EnumRole {
+    DOCTOR,
+    SECRETARY
 }
