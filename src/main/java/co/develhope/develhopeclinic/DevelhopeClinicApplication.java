@@ -103,21 +103,21 @@ public class DevelhopeClinicApplication implements CommandLineRunner {
 
 		//Person Attributtes
 		Patient patient2 = new Patient();
-		patient1.setName("Giovanni");
-		patient1.setSurname("Rossi");
-		patient1.setNationality("Italy");
-		patient1.setPlaceOfBirth("Milano");
-		patient1.setBirthDate(LocalDate.of(1952, 2, 21));
-		patient1.setFiscalCode("RSSGNN52B21F205N");
-		patient1.setDocumentNumber("EF82562344");
-		patient1.setAddress("Via Roma, 154");
-		patient1.setCity("Milano");
-		patient1.setPhone("+393317329654");
-		patient1.setEmail("giovannirossi@gmail.com.com");
-		patient1.setGender(EnumGender.MALE);
+		patient2.setName("Giovanni");
+		patient2.setSurname("Rossi");
+		patient2.setNationality("Italy");
+		patient2.setPlaceOfBirth("Milano");
+		patient2.setBirthDate(LocalDate.of(1952, 2, 21));
+		patient2.setFiscalCode("RSSGNN52B21F205N");
+		patient2.setDocumentNumber("EF82562344");
+		patient2.setAddress("Via Roma, 154");
+		patient2.setCity("Milano");
+		patient2.setPhone("+393317329654");
+		patient2.setEmail("giovannirossi@gmail.com");
+		patient2.setGender(EnumGender.MALE);
 
 		//Patient Attributtes
-		patient1.setMedicalPatology("Miocardite");
+		patient2.setMedicalPatology("Blocco cardiaco");
 
 		patientRepository.save(patient2);
 
