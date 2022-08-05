@@ -34,7 +34,7 @@ public class PatientController {
         return service.getPatientById(id);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/update/{id}")
     public Patient updatePatient(@RequestBody Patient patient){
         return service.updatePatient(patient);
     }
