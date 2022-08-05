@@ -1,6 +1,7 @@
 package co.develhope.develhopeclinic.controllers;
 
 import co.develhope.develhopeclinic.entities.Patient;
+import co.develhope.develhopeclinic.repositories.I_PatientRepository;
 import co.develhope.develhopeclinic.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,12 +15,15 @@ public class PatientController {
     @Autowired
     private PatientService service;
 
-    @PostMapping("/addPatient")
+    @Autowired
+    private I_PatientRepository patientRepository;
+
+    @PostMapping("/addSingle")
     public Patient addPatient (@RequestBody Patient patient){
         return service.savePatient(patient);
     }
 
-    @PostMapping ("/addPatients")
+    @PostMapping ("/addMulti")
     public List<Patient> addPatients (@RequestBody List<Patient> patients){
         return service.savePatients(patients);
     }
@@ -35,8 +39,9 @@ public class PatientController {
     }
 
     @PutMapping("/update/{id}")
-    public Patient updatePatient(@RequestBody Patient patient){
-        return service.updatePatient(patient);
+    public Patient updatePatient(@PathVariable int id, @RequestBody Patient patient){
+        patient.setId(id);
+        return patientRepository.saveAndFlush(patient);
     }
 
     @DeleteMapping("/delete/{id}")

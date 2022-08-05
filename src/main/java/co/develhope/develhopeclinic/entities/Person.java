@@ -20,7 +20,7 @@ public class Person {
     private String city;
     @Column(name = "phone")
     private String phone;
-    @Column(unique = true, name = "email", length = 30)
+    @Column(unique = true, name = "email", length = 100)
     private String email;
     @Enumerated(EnumType.ORDINAL)
     private EnumGender gender;
@@ -30,7 +30,7 @@ public class Person {
     private String placeOfBirth;
     @Column(name = "birthDate")
     private LocalDate birthDate;
-    @Column(name = "fiscalCode",length = 16) //valutare omocodia
+    @Column(unique = true, name = "fiscalCode",length = 16) //valutare omocodia
     private String fiscalCode;
     @Column(name = "documentNumber")
     private String documentNumber;
