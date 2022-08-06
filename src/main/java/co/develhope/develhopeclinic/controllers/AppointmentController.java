@@ -1,14 +1,16 @@
 package co.develhope.develhopeclinic.controllers;
 
 import co.develhope.develhopeclinic.entities.Appointment;
-import co.develhope.develhopeclinic.entities.Doctor;
+import co.develhope.develhopeclinic.entities.EnumAppointmentStatus;
+import co.develhope.develhopeclinic.entities.Patient;
 import co.develhope.develhopeclinic.repositories.I_AppointmentRepository;
 import co.develhope.develhopeclinic.services.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/appointment")
@@ -48,5 +50,10 @@ public class AppointmentController {
     @DeleteMapping("/delete/{id}")
     public String deleteAppointment (@PathVariable int id){
         return appointmentService.deleteAppointment(id);
+    }
+
+    @GetMapping("/findAllByStatus")
+    public Page<Appointment> getAllFlightsByStatus(@RequestParam EnumAppointmentStatus appointmentStatus, @RequestParam int page, @RequestParam int size){
+        return appointmentRepository.findAllByStatus(appointmentStatus, (PageRequest.of(page, size)));
     }
 }

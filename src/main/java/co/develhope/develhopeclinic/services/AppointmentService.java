@@ -1,6 +1,7 @@
 package co.develhope.develhopeclinic.services;
 
 import co.develhope.develhopeclinic.entities.Appointment;
+import co.develhope.develhopeclinic.entities.Patient;
 import co.develhope.develhopeclinic.repositories.I_AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,4 +45,5 @@ public class AppointmentService {
         appointmentRepository.deleteById(id);
         return "Appointment n° " + id + " has been removed!";
     }
+
 }

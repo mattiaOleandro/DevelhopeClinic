@@ -131,6 +131,7 @@ public class DevelhopeClinicApplication implements CommandLineRunner {
 		appointment1.setDoctor(doctor1);
 		appointment1.setPatient(patient1);
 		appointment1.setAppointmentDateTime(LocalDateTime.of(2022, 8, 10,12,00));
+		appointment1.setAppointmentStatus(EnumAppointmentStatus.CONFIRMED);
 		appointmentRepository.save(appointment1);
 
 		//New Appointment appointment2
@@ -138,6 +139,7 @@ public class DevelhopeClinicApplication implements CommandLineRunner {
 		appointment2.setDoctor(doctor2);
 		appointment2.setPatient(patient1);
 		appointment2.setAppointmentDateTime(LocalDateTime.of(2022, 9, 18,15,30));
+		appointment2.setAppointmentStatus(EnumAppointmentStatus.CANCELLED);
 		appointmentRepository.save(appointment2);
 
 		//New Appointment appointment3
@@ -145,6 +147,7 @@ public class DevelhopeClinicApplication implements CommandLineRunner {
 		appointment3.setDoctor(doctor1);
 		appointment3.setPatient(patient2);
 		appointment3.setAppointmentDateTime(LocalDateTime.of(2022, 9, 21,8,30));
+		appointment3.setAppointmentStatus(EnumAppointmentStatus.CONFIRMED);
 		appointmentRepository.save(appointment3);
 	}
 }

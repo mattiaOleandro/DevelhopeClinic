@@ -24,13 +24,17 @@ public class Appointment {
     @ManyToOne(fetch = FetchType.LAZY)
     private Patient patient;
 
+    @Enumerated(EnumType.STRING)
+    private EnumAppointmentStatus appointmentStatus;
+
     public Appointment(){}
 
-    public Appointment(int id, LocalDateTime appointmentDateTime, Doctor doctor, Patient patient) {
+    public Appointment(int id, LocalDateTime appointmentDateTime, Doctor doctor, Patient patient, EnumAppointmentStatus appointmentStatus) {
         this.id = id;
         this.appointmentDateTime = appointmentDateTime;
         this.doctor = doctor;
         this.patient = patient;
+        this.appointmentStatus = appointmentStatus;
     }
 
     public int getId() {
@@ -63,5 +67,13 @@ public class Appointment {
 
     public void setPatient(Patient patient) {
         this.patient = patient;
+    }
+
+    public EnumAppointmentStatus getAppointmentStatus() {
+        return appointmentStatus;
+    }
+
+    public void setAppointmentStatus(EnumAppointmentStatus appointmentStatus) {
+        this.appointmentStatus = appointmentStatus;
     }
 }
