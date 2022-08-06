@@ -16,7 +16,7 @@ public class Person {
     private String phone;
     @Column(unique = true, length = 100)
     private String email;
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private EnumGender gender;
     private String nationality;
     private String placeOfBirth;

@@ -1,11 +1,14 @@
 package co.develhope.develhopeclinic.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "patientTable")
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class Patient extends Person{
 
     private String medicalPatology;
