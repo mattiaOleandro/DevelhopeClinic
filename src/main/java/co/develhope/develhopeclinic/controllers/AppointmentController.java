@@ -38,11 +38,10 @@ public class AppointmentController {
         return appointmentService.getAppointmentById(id);
     }
 
-    //update appointment by id
+    //update appointment by id using appointmentService
     @PutMapping("/update/{id}")
-    public Appointment updateAppointment(@PathVariable int id, @RequestBody Appointment appointment){
-        appointment.setId(id);
-        return appointmentRepository.saveAndFlush(appointment);
+    public Appointment updateSingleAppointment(@PathVariable int id, @RequestBody Appointment appointment){
+        return appointmentService.updateSingleAppointment(id, appointment);
     }
 
     //delete appointment by id using appointmentService
