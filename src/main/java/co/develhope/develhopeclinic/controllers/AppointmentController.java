@@ -1,7 +1,9 @@
 package co.develhope.develhopeclinic.controllers;
 
 import co.develhope.develhopeclinic.entities.Appointment;
+import co.develhope.develhopeclinic.entities.Doctor;
 import co.develhope.develhopeclinic.repositories.I_AppointmentRepository;
+import co.develhope.develhopeclinic.services.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,22 +17,25 @@ public class AppointmentController {
     @Autowired
     private I_AppointmentRepository appointmentRepository;
 
-    //add single appointment
+    @Autowired
+    private AppointmentService appointmentService;
+
+    //add single appointment using appointmentService
     @PostMapping("/addSingle")
     public Appointment addAppointment (@RequestBody Appointment appointment){
-        return appointmentRepository.save(appointment);
+        return appointmentService.saveAppointment(appointment);
     }
 
-    //find all appointment
+    //find all appointment using appointmentService
     @GetMapping("/findAllAppointment")
     public List<Appointment> findAllAppointment (){
-        return appointmentRepository.findAll();
+        return appointmentService.getAllAppointment();
     }
 
-    //find appointment by id
+    //find appointment by id using appointmentService
     @GetMapping("/findAppointmentById/{id}")
-    public Optional<Appointment> findAppointmentById (@PathVariable int id){
-        return appointmentRepository.findById(id);
+    public Appointment findAppointmentById (@PathVariable int id){
+        return appointmentService.getAppointmentById(id);
     }
 
     //update appointment by id
@@ -40,10 +45,9 @@ public class AppointmentController {
         return appointmentRepository.saveAndFlush(appointment);
     }
 
-    //delete appointment by id
+    //delete appointment by id using appointmentService
     @DeleteMapping("/delete/{id}")
     public String deleteAppointment (@PathVariable int id){
-        appointmentRepository.deleteById(id);
-        return"Appointment n° " + id + " has been removed!";
+        return appointmentService.deleteAppointment(id);
     }
 }
