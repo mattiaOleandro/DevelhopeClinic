@@ -34,6 +34,11 @@ public class DoctorService {
         return repository.findByName(name);
     }
 
+    //get Doctor by Fiscal Code
+    public Doctor getDoctorByFiscalCode (String fiscal_code){
+        return repository.findByfiscalCode(fiscal_code);
+    }
+
     public String deleteDoctor (int id){
         repository.deleteById(id);
         return "Doctor n° " + id + " has been removed!";

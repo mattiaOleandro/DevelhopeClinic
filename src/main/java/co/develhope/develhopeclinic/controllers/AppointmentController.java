@@ -1,9 +1,10 @@
 package co.develhope.develhopeclinic.controllers;
 
 import co.develhope.develhopeclinic.entities.Appointment;
+import co.develhope.develhopeclinic.entities.Doctor;
 import co.develhope.develhopeclinic.entities.EnumAppointmentStatus;
-import co.develhope.develhopeclinic.entities.Patient;
 import co.develhope.develhopeclinic.repositories.I_AppointmentRepository;
+import co.develhope.develhopeclinic.repositories.I_DoctorRepository;
 import co.develhope.develhopeclinic.services.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,6 +22,10 @@ public class AppointmentController {
 
     @Autowired
     private AppointmentService appointmentService;
+
+    @Autowired
+    private I_DoctorRepository doctorRepository;
+
 
     //add single appointment using appointmentService
     @PostMapping("/addSingle")
@@ -52,8 +57,15 @@ public class AppointmentController {
         return appointmentService.deleteAppointment(id);
     }
 
+    //find all appointments by status
     @GetMapping("/findAllByStatus")
-    public Page<Appointment> getAllFlightsByStatus(@RequestParam EnumAppointmentStatus appointmentStatus, @RequestParam int page, @RequestParam int size){
+    public Page<Appointment> getAllFlightsByStatus(@RequestParam EnumAppointmentStatus appointmentStatus,
+                                                   @RequestParam int page, @RequestParam int size){
         return appointmentRepository.findAllByStatus(appointmentStatus, (PageRequest.of(page, size)));
+    }
+
+    @GetMapping("/getAllByDoctorFiscalCode")
+    public List<Appointment> getAllByDoctorFiscalCode(@RequestParam String fiscalCode){
+        return appointmentRepository.findAllByDoctorFiscalCode(fiscalCode);
     }
 }
