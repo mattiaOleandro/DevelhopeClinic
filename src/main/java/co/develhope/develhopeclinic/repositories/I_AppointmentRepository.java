@@ -20,10 +20,10 @@ public interface I_AppointmentRepository extends JpaRepository<Appointment,Integ
                                       Pageable pageable);
 
     @Query(value = "SELECT a.appointment_date_time, d.surname AS 'Doctor', p.surname AS 'Patient' FROM appointment AS a " +
-            "JOIN `doctor_tbl` AS d ON d.id = a.id " +
-            "JOIN `patient_table` AS p ON p.id = a.id " +
+            "JOIN `doctor_tbl` AS d ON d.id = a.doctor_id " +
+            "JOIN `patient_table` AS p ON p.id = a.patient_id " +
             "WHERE d.fiscal_code = :fiscalCode",
             nativeQuery = true)
-    List<Appointment> findAllByDoctorFiscalCode(@Param("fiscalCode") String fiscalCode);
+    List<Object[]> findAllByDoctorFiscalCode(@Param("fiscalCode") String fiscalCode);
 
 }
