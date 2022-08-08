@@ -65,7 +65,7 @@ public class AppointmentController {
     }
 
     @GetMapping("/getAllByDoctorFiscalCode")
-    public List<Appointment> getAllByDoctorFiscalCode(@RequestParam String fiscalCode){
+    public List<Object[]> getAllByDoctorFiscalCode(@RequestParam(value = "fiscalCode") String fiscalCode){
         return appointmentRepository.findAllByDoctorFiscalCode(fiscalCode);
     }
 }
