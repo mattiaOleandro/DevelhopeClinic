@@ -26,7 +26,7 @@ public class DoctorService {
         return  repository.findAll();
     }
 
-    public  Doctor getDoctorById (int id){
+    public Doctor getDoctorById (int id){
         return  repository.findById(id).orElse(null);
     }
 
@@ -34,9 +34,14 @@ public class DoctorService {
         return repository.findByName(name);
     }
 
+    //get Doctor by Fiscal Code
+    public Doctor getDoctorByFiscalCode (String fiscal_code){
+        return repository.findByfiscalCode(fiscal_code);
+    }
+
     public String deleteDoctor (int id){
         repository.deleteById(id);
-        return "Doctor Removed! " + id;
+        return "Doctor n° " + id + " has been removed!";
     }
 
     public Doctor updateDoctor (Doctor doctor) throws NullPointerException{

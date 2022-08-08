@@ -9,4 +9,6 @@ public interface I_DoctorRepository extends JpaRepository<Doctor,Integer> {
 
     Doctor findByName(String name);
 
+    Doctor findByfiscalCode(String fiscal_code);
+
 }
