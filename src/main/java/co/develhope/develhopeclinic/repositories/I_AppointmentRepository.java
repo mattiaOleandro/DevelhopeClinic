@@ -24,6 +24,5 @@ public interface I_AppointmentRepository extends JpaRepository<Appointment,Integ
             "JOIN `patient_table` AS p ON p.id = a.patient_id " +
             "WHERE d.fiscal_code = :fiscalCode",
             nativeQuery = true)
-    List<Object[]> findAllByDoctorFiscalCode(@Param("fiscalCode") String fiscalCode);
-
+    Page<Object[]> findAllByDoctorFiscalCode(@Param("fiscalCode") String fiscalCode, Pageable pageable);
 }

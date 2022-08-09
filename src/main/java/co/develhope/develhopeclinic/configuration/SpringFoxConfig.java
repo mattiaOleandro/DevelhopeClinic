@@ -27,7 +27,7 @@ public class SpringFoxConfig {
                         diagnostic imaging examinations (X-rays, CT scans, MRIs, etc.)\s""",
                 "1.0.0",
                 "https://en.wikipedia.org/wiki/MIT_License",
-                new Contact("Angelo", "https://develhope.co", "juba.kem@gmail.com"),
+                new Contact("DevelHope Team 1", "https://develhope.co", "juba.kem@gmail.com"),
                 "MIT",
                 "https://en.wikipedia.org/wiki/MIT_License",
                 Collections.emptyList()
