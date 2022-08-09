@@ -8,12 +8,12 @@ import java.time.LocalDate;
 @MappedSuperclass
 public class Employee extends Person {
 
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private EnumRole role;
     private String login;
     private String password;
     private String badgeNumber;
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private EnumPlaceOfWork placeOfWork;
 
     public Employee() {

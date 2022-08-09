@@ -41,6 +41,12 @@ public class DoctorController {
         return service.getDoctorByName(name);
     }
 
+    //get Doctor by Fiscal Code
+    @GetMapping("/findDoctorByFiscalCode/{fiscal_code}")
+    public Doctor findDoctorByFiscalCode (@PathVariable String fiscal_code){
+        return service.getDoctorByFiscalCode(fiscal_code);
+    }
+
     @PutMapping("/update/{id}")
     public Doctor updateDoctor(@PathVariable int id, @RequestBody Doctor doctor){
         doctor.setId(id);
