@@ -65,7 +65,8 @@ public class AppointmentController {
     }
 
     @GetMapping("/getAllByDoctorFiscalCode")
-    public List<Object[]> getAllByDoctorFiscalCode(@RequestParam String fiscalCode){
-        return appointmentRepository.findAllByDoctorFiscalCode(fiscalCode);
+    public Page<Object[]> getAllByDoctorFiscalCode(@RequestParam String fiscalCode,
+                                                   @RequestParam int page, @RequestParam int size){
+        return appointmentRepository.findAllByDoctorFiscalCode(fiscalCode, (PageRequest.of(page, size)));
     }
 }
